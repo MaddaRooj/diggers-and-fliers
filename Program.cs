@@ -14,9 +14,7 @@ namespace diggers_and_fliers
             ant.Move();
 
             Console.WriteLine();
-            var bettaFish = new BettaFish(){
-                color = "blue"
-            };
+            var bettaFish = new BettaFish("Steve", "Blue");
             bettaFish.Move();
 
             Console.WriteLine();
@@ -30,9 +28,7 @@ namespace diggers_and_fliers
             earthworm.Move();
 
             Console.WriteLine();
-            var finch = new Finch(){
-                color = "purple"
-            };
+            var finch = new Finch("Heath", "blue");
             finch.Move();
 
             Console.WriteLine();
@@ -48,7 +44,7 @@ namespace diggers_and_fliers
             mouse.Move();
 
             Console.WriteLine();
-            var parakeet = new Parakeet();
+            var parakeet = new Parakeet("Tim", "yellow");
             parakeet.Move();
 
             Console.WriteLine();
@@ -63,12 +59,34 @@ namespace diggers_and_fliers
             };
             terrapin.Move();
 
+            System.Console.WriteLine();
             var groundAnimals = new List<IWalker>(){
                 ant, mouse, terrapin, gerbil, rattlesnake, copperhead
             };
+            System.Console.WriteLine("Land animals:");
             foreach( var animal in groundAnimals)
             {
-                System.Console.WriteLine($"{animal.name}");
+                System.Console.WriteLine($"{animal.name} the {animal.GetType().ToString().Split(".")[1]}");
+            }
+
+            System.Console.WriteLine();
+            var aquaticAnimals = new List<ISwimmer>(){
+                bettaFish
+            };
+            System.Console.WriteLine("Aquatic animals:");
+            foreach( var animal in aquaticAnimals)
+            {
+                System.Console.WriteLine($"{animal.name} the {animal.GetType().ToString().Split(".")[1]}");
+            }
+
+            System.Console.WriteLine();
+            var flyingAnimals = new List<IFlier>(){
+                finch, parakeet
+            };
+            System.Console.WriteLine("Flying animals:");
+            foreach( var animal in flyingAnimals)
+            {
+                System.Console.WriteLine($"{animal.name} the {animal.GetType().ToString().Split(".")[1]}");
             }
         }
     }
